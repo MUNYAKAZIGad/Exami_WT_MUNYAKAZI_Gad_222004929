@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="formatting.css">
+        <link rel="stylesheet" href="styles.css">
+        <title>Login Form</title>
+        <script type="text/javascript">
+            //declare variables to be used
+            var divs = new Array();
+            divs[2]="erroremail";
+            divs[4]="errorPassword";
+            //Validatino function
+                function validate(){
+                    var inputs =new Array();
+                    inputs[2]=document.getElementById('em').value;
+                    inputs[4]=document.getElementById('pwd').value;
+                    //Just for errors
+                    var errors =new Array();
+                    errors[2]="<span style='color:red;'>Please Enter your Email!</span>";
+                    errors[4]="<span style='color:red;'>Please Enter your Password!</span>";
+                    // We need to iterate throught inputs
+                    for(var i in inputs){
+                        var errMessage= errors[i];
+                        var div = divs[i];
+                        if(inputs[i]==""){
+                            document.getElementById(div).innerHTML;
+                            errMessage;
+                        }else if(i==2){
+                            var atpost=inputs[i].indexOf("@");
+                            var dotpost=inputs[i].lastIndexOf(".");
+                                    if(atpost<1 || dotpost < atpost +2 || dotpost+2>inputs[i].length){
+                                        document.getElementById('erroremail').innerHTML="<span style='color:red;'>Enter a valid Email address!</span>";
+                                    } else {
+                                        document.getElementById(div).innerHTML="OK!";
+                                    }
+                        }else {
+                            document.getElementById(div).innerHTML="OK!";
+                        }//close if condition
+                    }//close for loop
+                }//close the function
+
+                function finalValidate(){
+                    var count = 0;
+                    for(var i =0;i<6;i++){
+                        var div =divs[i];
+                        if(document.getElementById(div).innerHTML=="OK!"){
+                            count = count +1;
+                        }
+                    }
+                    if(count ==6){
+                        document.getElementById("errorFinal").innerHTML="All the data you entered are correct!";
+                    }
+                }
+        </script>
+    </header>
+    <body>
+        <!-- Developed and Designed by MUNYAKAZI Gad with 222004929 Reg number-->
+            <!--Home Ribbon on the website of the system-->
+        <div class="general-container">
+            <div class="Block" id="Block2">
+                <ol>
+                    <li><img src="./icon/icon.png"></li>
+                    <li><a href=".\index.html">Team Activities</a></li>
+                </ol>
+            </div>
+            <div class="Block" id="Block1">
+                <ol id="ribbon1">
+                    <li><a href=".\index.html#activities">Activities</a></li>
+                    <li><a href=".\index.html#How-it-works">How It Works</a></li>
+                    <li><a href=".\index.html#Features">Features</a></li>
+                    <li><a href=".\index.html#Pricing">Pricing</a></li>
+                    <li><a href=".\login.html">Login</a></li>
+                </ol>
+            </div>
+        </div>
+        <div>
+            <center>
+                <div class="user-categorization">
+                    <div><span id="user"><a href="login.html">User(Gamer)</a></span><span id="Organizer"><a href="loginorganizer.html">Organizer</a></span></div>
+                </div>
+                <div class="wrapper">
+                    <form style="text-align: center;" action="loginorganizer.php" method="POST" enctype="">
+                        <div class="input-box"><input type="text" placeholder="E-mail" required name="username" id="em"><div id="erroremail"></div><i class='bx bxs-user'></i></div></br>
+                        <div class="input-box"><input type="password" placeholder="Password" id="pwd"  required name="password"><i class='bx bxs-lock-alt' ></i></div></br>
+                        <div class="remember-forgot"><label><input type="checkbox">Remember Me</label><a href="#">Forgot Password</a></div>
+                        <button type="submit" class="btn" name="subject" value="Login" id="create" value="Create" >Login</button>
+                        <div class="register-link"><p>Don't have an account? <a href="register.html">Register</a></p></div>
+                    </form>
+                </div>
+            </center>
+        </div>
+    </body>
+    <footer>
+        <div>
+            <span>Copyright © 2024 Team Activities All Right Reserved</span>
+        </div>
+    </footer>
+</html>

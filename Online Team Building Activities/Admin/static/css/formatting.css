@@ -1,0 +1,110 @@
+.Block{
+    float: left;
+    display: inline-block;
+}
+#Block1{
+    width: 60%;
+}
+#Block2{
+    width: 40%;
+}
+#Block1 ol li{
+    text-decoration: none;
+    float: left;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size:25px;
+}
+#Block2 ol li{
+    text-decoration: none;
+    float: left;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 30px;
+}
+#Block1 ol li a{
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#Block2 ol li a{
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.Block #ribbon1 a:hover{
+    color: aqua;
+}
+#Block2 a:hover{
+    color: aqua;   
+}
+footer{clear: both;}
+footer div{
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+.general-container{
+    height: 100px;
+}
+.wd-bg .mod{
+    font-size: 55px;
+    font-weight: bold;
+}
+ /*Beginning of the activities Row*/
+.parent_block div{
+    float: left;
+    display: inline-block;
+    width: 20%;
+    margin-left: 3%;
+    margin-right: 1%;
+}
+/* End of the activities row*/
+/*This is for the second and third row How it works*/
+.parent_block01 div{
+    float: left;
+    display: inline-block;
+    width: 30%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+/*End of the second and third row*/
+.text p{
+    font-size: 12px;
+}
+.text01 p{
+    font-size: 12px;
+    font-weight: light;
+    font-size: 30px;
+}
+/*This if for feature section*/
+.text001 p{
+    font-size: 12px;
+    font-weight: light;
+}
+/*End of that editting*/
+.Grant_parent_block{
+    margin-left: 100px;
+    clear: both;
+}
+/*Spacing between activites and how it works*/
+.activities000{clear: both;margin-top: 300px;}
+.wd-bg{margin-top: 100px;}
+.container{
+    margin-left: 5%;
+    margin-right: 1%;
+} 
+.container p{font-size: 25px;}
+.wd-bg .mod{font-size: 70px;}
+button{
+    height: 50px;
+    width: 400px;
+    font-size: 30px;
+    font-weight: lighter;
+    border-radius: 7px;
+    background-color: white;
+}

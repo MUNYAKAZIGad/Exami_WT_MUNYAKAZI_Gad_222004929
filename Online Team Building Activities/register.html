@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Register.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registration - Team Activities</title>
+    <script type="text/javascript">
+        //declare variables to be used
+        var divs = new Array();
+        divs[0]="errorfirst";
+        divs[1]="errorlast";
+        divs[2]="erroremail";
+        divs[3]="erroruid";
+        divs[4]="errorPassword";
+        divs[5]="errorteam";
+        divs[6]="errorConfirm";
+        //Validatino function
+            function validate(){
+                var inputs =new Array();
+                inputs[0]=document.getElementById('firstName').value;
+                inputs[1]=document.getElementById('lastName').value;
+                inputs[2]=document.getElementById('email').value;
+                inputs[3]=document.getElementById('username').value;
+                inputs[4]=document.getElementById('telephone').value;
+                inputs[5]=document.getElementById('team').value;
+                inputs[6]=document.getElementById('password').value;
+                //Just for errors
+                var errors =new Array();
+                errors[0]="<span style='color:red;'>Please Enter your First Name!</span>";
+                errors[1]="<span style='color:red;'>Please Enter your last Name!</span>";
+                errors[2]="<span style='color:red;'>Please Enter your Username!</span>";
+                errors[3]="<span style='color:red;'>Please Enter your Email!</span>";
+                errors[4]="<span style='color:red;'>Please Enter your Telephone!</span>";
+                errors[5]="<span style='color:red;'>Please Enter your Team!</span>";
+                errors[6]="<span style='color:red;'>Please Enter your password!</span>";
+                // We need to iterate throught inputs
+                for(var i in inputs){
+                    var errMessage= errors[i];
+                    var div = divs[i];
+                    if(inputs[i]==""){
+                        document.getElementById(div).innerHTML;
+                        errMessage;
+                    }else if(i==2){
+                        var atpost=inputs[i].indexOf("@");
+                        var dotpost=inputs[i].lastIndexOf(".");
+                                if(atpost<1 || dotpost < atpost +2 || dotpost+2>inputs[i].length){
+                                    document.getElementById('erroremail').innerHTML="<span style='color:red;'>Enter a valid Email address!</span>";
+                                } else {
+                                    document.getElementById(div).innerHTML="OK!";
+                                }
+                    } else {
+                        document.getElementById(div).innerHTML="OK!";
+                    }//close if condition
+                }//close for loop
+            }//close the function
+
+            function finalValidate(){
+                var count = 0;
+                for(var i =0;i<7;i++){
+                    var div =divs[i];
+                    if(document.getElementById(div).innerHTML=="OK!"){
+                        count = count +1;
+                    }
+                }
+                if(count ==7){
+                    document.getElementById("errorFinal").innerHTML="All the data you entered are correct!";
+                }
+            }
+    </script>
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+    <!-- Developed and Designed by MUNYAKAZI Gad with 222004929 Reg number-->
+    <!--Home Ribbon on the website of the system-->
+    <div class="general-container">
+        <div class="Block" id="Block2">
+            <ol>
+                <li><img src="./icon/icon.png"></li>
+                <li><a href=".\index.html">Team Activities</a></li>
+            </ol>
+        </div>
+        <div class="Block" id="Block1">
+            <ol id="ribbon1">
+                <li><a href=".\index.html#activities">Activities</a></li>
+                <li><a href=".\index.html#How-it-works">How It Works</a></li>
+                <li><a href=".\index.html#Features">Features</a></li>
+                <li><a href=".\index.html#Pricing">Pricing</a></li>
+                <li><a href=".\login.html">Login</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- Registration Card -->
+    <center>
+        <div class="user-categorization">
+            <div><span id="user"><a href="#">User(Gamer)</a></span><span id="Organizer"><a href="organizer.html">Organizer</a></span></div>
+        </div>
+        <table>
+            <!-- Registration form -->
+            <form action="register.php" method="post">
+                <tr>
+                    <td><label for="firstName" class="form-label">First Name:</label></td>
+                    <td><input type="text" class="form-control" id="firstName" name="firstName" oninput="updateUsername()"
+                        onkeyup="validate();"></td>
+                    <td><div id="errorfirst"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName" class="form-label">Last Name:</label></td>
+                    <td><input type="text" class="form-control" id="lastName" name="lastName" oninput="updateUsername()"
+                        onkeypress="validate();"></td>
+                    <td><div id="errorlast"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="username" class="form-label" aria-disabled="true">Username:</label></td>
+                    <td><input type="text" class="form-control" id="username" name="username" readonly onkeypress="validate();"></td>
+                    <td><div id="erroruid"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="email" class="form-label">Email address:</label></td>
+                    <td><input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                        onkeyup="validate();"></td>
+                        <td><div id="erroremail"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="telephone" class="form-label">Telephone:</label></td>
+                    <td><input type="text" class="form-control" id="telephone" name="telephone" onkeyup="validate();"></td>
+                    <td><div id="errorPassword"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="telephone" class="form-label">Team:</label></td>
+                    <td><input type="text" class="form-control" id="team" name="telephone" onkeyup="validate();"></td>
+                    <td><div id="errorteam"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="password" class="form-label">Password:</label></td>
+                    <td><input type="password" class="form-control" id="password" name="password" onkeyup="validate();"></td>
+                    <td><div id="errorConfirm"></div></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-primary w-100" id="create" value="Create" onclick="validate();finalValidate();">Register</button></td>
+                    <td><div id="errorFinal"></div></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="text" class="btn btn-primary w-100"><a href=".\login.html"> Click here to Login</a></button></td>
+                    <td></td>
+                </tr>
+            </form>
+        </table>
+    </center>
+    <script>
+        function updateUsername() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var usernameField = document.getElementById('username');
+            if (firstName && lastName) {
+                var firstLetter = firstName.charAt(0).toLowerCase();
+                var username = firstLetter + lastName.toLowerCase();
+                usernameField.value = username;
+            } else {
+                usernameField.value = '';
+            }
+        }
+    </script>
+</body>
+<footer>
+    <div>
+        <span>Copyright © 2024 Team Activities All Right Reserved</span>
+    </div>
+</footer>
+</html>
